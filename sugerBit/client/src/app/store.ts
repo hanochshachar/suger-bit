@@ -1,11 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
+import privateValueSlice from '../features/slices/privateValueSlice';
 import registerSlice from '../features/slices/registerSlice';
+import valuesSlice from '../features/slices/valuesSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    register: registerSlice
+    register: registerSlice,
+    allValues: valuesSlice,
+    privateValues: privateValueSlice
   },
 });
 

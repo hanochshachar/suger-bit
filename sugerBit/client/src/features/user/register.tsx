@@ -26,8 +26,12 @@ export const Register = () => {
             
         }
     }
+    console.log(selector);
+    
     useEffect(()=>{
-        if(selector === true){
+        console.log(selector);
+        
+        if(selector == true){
             navigate('/home')
         }
     },[selector])

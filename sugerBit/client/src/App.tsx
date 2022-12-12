@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Favorites } from './features/main/favorites/Favorites';
 import { Home } from './features/main/home/Home';
+import { InsertValue } from './features/main/values/InsertValue';
 import { Values } from './features/main/values/Values';
 import { Login } from './features/user/login';
 import { Register } from './features/user/register';
@@ -11,7 +12,12 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route index element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/> 
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route path='/favorites' element={<Favorites/>}/>
+      <Route path='/values' element={<Values/>} />
+      <Route path='/private-value' element={<InsertValue/>}/>
+
     </Routes>
     </BrowserRouter>
   );

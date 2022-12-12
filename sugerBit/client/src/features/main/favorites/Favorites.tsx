@@ -1,8 +1,9 @@
 import React from 'react'
 import { Navbar } from '../Navbar'
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from '../home/Home';
 import { Values } from '../values/Values';
+import '../../../style/favorites.scss'
 
 export const Favorites = () => {
   return (
@@ -13,12 +14,7 @@ export const Favorites = () => {
         <div className="x">x</div>
     </div>
     <Navbar/>
-    {/* OUTLET */}
-    <Routes>
-    <Route path='/home' element={<Home/>} />
-      <Route path='/favorites' element={<Favorites/>}/>
-      <Route path='/values' element={<Values/>} />
-    </Routes>
+    
 </>
 
   )

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -25,10 +25,14 @@ export const Login = () => {
     }
   }
   return (
+    <>
     <form onSubmit={handleLogin}>
       <input type="email" name="email" placeholder='email' />
       <input type="password" name="password" placeholder='password' />
       <input type="submit" value="login" />
     </form>
+    <h1>didn't register yet? </h1>
+    <Link to='/register'>register here</Link>
+    </>
   )
 }
