@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import '../../../style/values.scss';
 import { addPrivateAsync } from '../../api/privateValueAPI';
 import { selectedPrivateValue } from '../../slices/privateValueSlice';
 
 export const InsertValue = () => {
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const selected = useAppSelector(selectedPrivateValue)
     const handleAddFavorites = () => {
@@ -27,7 +29,8 @@ export const InsertValue = () => {
                 
             dispatch(addPrivateAsync({name, unit, grams, carbohydrates,
                  Fats, proteins, calories, Cholesterol}))
-                 
+
+                navigate('/values')
         } catch (error) {
             console.log(error);
             

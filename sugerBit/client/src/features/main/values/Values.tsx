@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { Navbar } from '../Navbar';
 import { Favorites } from '../favorites/Favorites';
@@ -10,11 +10,14 @@ import { ValuesCard } from './ValuesCard';
 import { allValuesAsync } from '../../api/valuesAPI';
 
 export const Values = () => {
+  const navigate = useNavigate()
   const [text, setText] = useState('')
   const [suggestion, setSuggestion] = useState<any>([]);
   const [search, setSearch] = useState<any>([])
   const dispatch = useAppDispatch()
   const allValuesSelected = useAppSelector(selectedValues);
+  console.log(allValuesSelected);
+  
   const onChangeHandler = (text: string) => {
     let matches: valuesDetails[] | undefined = [] ;
     if(text.length > 0){
@@ -53,6 +56,9 @@ export const Values = () => {
     
   }
   console.log(search)
+  const handleNavigate = ()=> {
+    navigate('/private-value')
+  }
   return (
 <>
     <div className="top">
@@ -61,12 +67,15 @@ export const Values = () => {
         <div className="x">x</div>
     </div>
     <Navbar/>
+    <div className="searchBar">
+      <button onClick={handleNavigate}>+</button>
     <form onSubmit={handleSearch}>
       <input type="text" placeholder='חיפוש' name='search'
        onChange={ev => onChangeHandler(ev.target.value)}
        value={text}/>
       <input type="submit" hidden />
     </form>
+    </div>
     <div className="suggestions">
     { suggestion !== null && suggestion.map((offer: any)=> {
       return( <div onClick={()=>onSuggestHandler(offer.name)}>{offer.name}</div>)
@@ -74,22 +83,22 @@ export const Values = () => {
     </div>
     <div className="allValues">
     { search.length !== 0 ? 
-        search.map((value:any) => {
-          return <ValuesCard key={value.id2}
+        search.map((value:any, index: number) => {
+          return <ValuesCard key={index}
                           name={value.name}
                           unit={value.unit}
                           Weight={value.Weight} 
                           carbohydrates={value.carbohydrates}
                           withprotein={value.withprotein}
-                          id2={value.id2}/>
-        }): allValuesSelected?.map((value) => {
-          return <ValuesCard key={value.id2}
+                          id2={index}/>
+        }): allValuesSelected?.map((value, index: number) => {
+          return <ValuesCard key={index}
                         name={value.name}
                         unit={value.unit}
                         Weight={value.Weight} 
                         carbohydrates={value.carbohydrates}
                         withprotein={value.withprotein}
-                        id2={value.id2}/>
+                        id2={index}/>
                         
       })}
 

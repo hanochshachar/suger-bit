@@ -15,11 +15,12 @@ export const privateValuePost = (req, res) => {
         console.log(userCookie);
         
         const { name, carbohydrates, calories, unit, grams, Fats, proteins, Cholesterol} = req.body;
-        console.log(name, carbohydrates, calories, unit, grams, Fats, proteins, Cholesterol)
+        const withprotein = carbohydrates + proteins * 0.5;
+        console.log(name, carbohydrates, calories, unit, grams, Fats, proteins, Cholesterol, withprotein)
         const query = `INSERT INTO privatevalues (usercookie, name, carbohydrates, calories,
-                                    unit, grams, Fats, proteins, Cholesterol) 
+                                    unit, grams, Fats, proteins, Cholesterol, withprotein, ) 
                         VALUES (${userCookie}, '${name}', '${carbohydrates}', '${calories}',
-                         '${unit}', '${grams}', '${Fats}', '${proteins}', '${Cholesterol}' )`
+                         '${unit}', '${grams}', '${Fats}', '${proteins}', '${Cholesterol}', '${withprotein}' )`
          connection.query(query, (err, results) => {
             try {
                 if (err) console.log(err);
