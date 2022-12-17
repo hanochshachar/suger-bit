@@ -8,6 +8,8 @@ import '../../../style/values.scss';
 import { selectedValues, valuesDetails } from '../../slices/valuesSlice';
 import { ValuesCard } from './ValuesCard';
 import { allValuesAsync } from '../../api/valuesAPI';
+import { selectedCalender } from '../../slices/calenderStartSlice';
+import { addCalenderAsync } from '../../api/addCalenderAPI';
 
 export const Values = () => {
   const navigate = useNavigate()
@@ -16,7 +18,9 @@ export const Values = () => {
   const [search, setSearch] = useState<any>([])
   const dispatch = useAppDispatch()
   const allValuesSelected = useAppSelector(selectedValues);
-  console.log(allValuesSelected);
+  const selectedStart = useAppSelector(selectedCalender)
+  const selectedCalenderRes = useAppSelector(selectedCalender)
+
   
   const onChangeHandler = (text: string) => {
     let matches: valuesDetails[] | undefined = [] ;
@@ -59,22 +63,52 @@ export const Values = () => {
   const handleNavigate = ()=> {
     navigate('/private-value')
   }
+  const handleAddCalender = () => {
+    try {
+      const allDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+      const split = allDate.split(" ")
+      const time = split[1]
+      const date = split[0]
+      console.log(date);
+      console.log(time);
+      
+      selectedStart.forEach((value) => {
+        const name = value.name
+        const unit = value.unit
+        const grams = value.grams
+        const carbohydrates = value.carbohydrates
+        const withprotein = value.withprotein;
+        dispatch(addCalenderAsync({name, unit, grams, date, time, carbohydrates, withprotein}))
+
+      })
+      //  name, unit, grams, date, carbohydrates, withprotein
+      console.log(selectedCalenderRes);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
   return (
 <>
     <div className="top">
-        <div className="v">v</div>
-        <div className="insert"><h1>פחמימות</h1></div>
-        <div className="x">x</div>
+        <button className='v' onClick={handleAddCalender}>v</button>
+        <div className="insert"><h1>פחמימות</h1>
+          {(selectedStart as any).reduce((acc: any, cur: any) =>{
+           return acc + cur.carbohydrates
+           }, 0)}</div>
+        <button className='x'>x</button>
     </div>
     <Navbar/>
     <div className="searchBar">
-      <button onClick={handleNavigate}>+</button>
     <form onSubmit={handleSearch}>
       <input type="text" placeholder='חיפוש' name='search'
        onChange={ev => onChangeHandler(ev.target.value)}
        value={text}/>
       <input type="submit" hidden />
     </form>
+    <button onClick={handleNavigate}>+</button>
     </div>
     <div className="suggestions">
     { suggestion !== null && suggestion.map((offer: any)=> {

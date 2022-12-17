@@ -5,13 +5,18 @@
     align-items: center;
     gap: 7rem;
 }
-.value{
+.allValues{
     display: flex;
-    justify-content: space-between;
-    background-color: bisque;
-    margin: 0.5rem;
-
+    flex-direction: column;
+    .value{
+        display: flex;
+        justify-content: space-between;
+        background-color: bisque;
+        margin: 0.5rem;
+    
+    }
 }
+
 .detailsPrivate{
     display:flex;
     justify-content: center;
@@ -28,4 +33,7 @@
     margin: auto;
     text-align: center;
     align-items: center;
+}
+.searchBar{
+    display: flex;
 }

@@ -5,3 +5,18 @@
     align-items: center;
     gap: 7rem;
 }
+.firstValues{
+    display: flex;
+    flex-direction: column;
+    .total{
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        
+    }
+}
+.totalDetails{
+    display: flex;
+    justify-content:space-between;
+    width: 100vw;
+}

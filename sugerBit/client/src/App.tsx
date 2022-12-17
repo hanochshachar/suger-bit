@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Favorites } from './features/main/favorites/Favorites';
 import { Home } from './features/main/home/Home';
@@ -14,7 +14,7 @@ function App() {
       <Route index element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/home' element={<Home/>}/>
-      <Route path='/favorites' element={<Favorites/>}/>
+      <Route path='/favorites' element={<Favorites />}/>
       <Route path='/values' element={<Values/>} />
       <Route path='/private-value' element={<InsertValue/>}/>
 

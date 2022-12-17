@@ -3,14 +3,25 @@ import jwt from 'jwt-simple';
 import cookieParser from 'cookie-parser';
 app.use(cookieParser());
 
-const addToFavorites = (req, res) => {
+export const addToFavorites = (req, res) => {
     try {
         const {user} = req.cookies;
         console.log(user);
         const secret = "itismysecret";
         const usercookie = jwt.decode(user, secret)
         const {userCookie} = usercookie
-        const {name, garms, carbohydrates, protein, fat, calories} = req.body;
+        const {name, grams, carbohydrates,
+            unit, withprotein} = req.body;
+        const query = `INSERT INTO favorites (name, unit, grams, carbohydrates, withprotein, usercookie )
+             VALUES ('${name}', '${unit}', '${grams}',
+             '${carbohydrates}', '${withprotein}', '${userCookie}')`
+
+        connection.query(query, (err, results) => {
+            if (err) throw err;
+            console.log();
+            
+            res.send({ok: true, results: results})
+        })
     } catch (error) {
         res.send(error)
     }

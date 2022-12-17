@@ -24,8 +24,6 @@ export const selectAllValues = (req, res) => {
          FROM  privatevalues WHERE usercookie='${userCookie}' ;`;
         connection.query(query, (err, results) => {
             try {
-                
-                console.log(results);
                 if (err) throw new err;
                 res.send(results)
             } catch (error) {
