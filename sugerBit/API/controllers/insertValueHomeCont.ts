@@ -3,13 +3,16 @@ import jwt from 'jwt-simple';
 import cookieParser from 'cookie-parser';
 app.use(cookieParser());
 
-export const getFavorites = (req, res) => {
+export const insertValueHome = (req, res) => {
     try {
         const {user} = req.cookies;
         const secret = "itismysecret";
         const usercookie = jwt.decode(user, secret)
-        const {userCookie} = usercookie;
-        const query = `SELECT * FROM favorites WHERE usercookie='${userCookie}'`;
+        const {userCookie} = usercookie
+        const {date, time, sugar, carbohydrates, insulin} =req.body;
+        const query = `INSERT INTO daybook (date, time, suger, carbohydrates, insulin, usercookie)
+                        VALUES ('${date}', '${time}', '${sugar}', 
+                        '${carbohydrates}', '${insulin}', '${userCookie}')`
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err;

@@ -12,7 +12,6 @@ export const login = (req, res) => {
     connection.query(query, (err, results, fields) => {
       try {
         if (err) throw err;
-        console.log(results);
 
         if (results.length > 0) {
           const payload = { userCookie: results[0].cookie };

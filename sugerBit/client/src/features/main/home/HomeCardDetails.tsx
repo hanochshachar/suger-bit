@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../../../style/home.scss";
+import axios from 'axios'
 
 interface homeDetails{
   name: string,
@@ -11,7 +12,14 @@ interface homeDetails{
 export const HomeCardDetails = ({name, unit, carbohydrates, id}: homeDetails) => {
   
   const handleDelete = async(id: number) => {
-      
+      try {
+        const {data} = await axios.delete('/api-sugar/delete-daybook', {data: {id}});
+        console.log(data);
+        
+        
+      } catch (error) {
+        console.error(error);
+      }
   }
   return (
     <div className='totalDetails' >

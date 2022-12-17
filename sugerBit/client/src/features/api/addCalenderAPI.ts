@@ -11,7 +11,11 @@ export const addCalenderAsync = createAsyncThunk(
     const {data} = await axios.post('/api-sugar/add-to-calender',
          {name, unit, grams, date,
          time, carbohydrates, withprotein});
-        console.log(data);
+         const {results} = data
+        console.log(results);
+        if (results !== undefined ){
+            window.location.reload();
+        }
         
         return data
     } catch (error) {

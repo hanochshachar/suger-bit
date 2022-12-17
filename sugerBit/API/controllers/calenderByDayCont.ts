@@ -6,7 +6,6 @@ app.use(cookieParser());
 export const calenderByDay = (req, res) => {
     try {
         const {user} = req.cookies;
-        console.log(user);
         const secret = "itismysecret";
         const usercookie = jwt.decode(user, secret)
         const {userCookie} = usercookie
@@ -15,7 +14,6 @@ export const calenderByDay = (req, res) => {
         connection.query(query, (err, results) => {
             try {
                 if (err) throw err;
-                console.log(results);
                 res.send(results)
                 
             } catch (error) {

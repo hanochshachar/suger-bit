@@ -6,7 +6,6 @@ app.use(cookieParser());
 export const addToCalender = (req, res) => {
     try {
         const {user} = req.cookies;
-        console.log(user);
         const secret = "itismysecret";
         const usercookie = jwt.decode(user, secret)
         const {userCookie} = usercookie

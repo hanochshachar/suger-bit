@@ -2,7 +2,10 @@ import express from 'express';
 import { addToCalender } from './controllers/addCalenderCont';
 import { addToFavorites } from './controllers/addToFavorites';
 import { calenderByDay } from './controllers/calenderByDayCont';
+import { deleteDaybook } from './controllers/deleteDaybookCont';
 import { getFavorites } from './controllers/getFavorites';
+import { insertValueHome } from './controllers/insertValueHomeCont';
+import { addInsulin, addSugar } from './controllers/insulinSugarCont';
 import { login } from './controllers/loginCont';
 import { privateValuePost } from './controllers/privateValueCont';
 import { addUser } from './controllers/regCont';
@@ -17,6 +20,10 @@ router.post('/add-user', addUser)
       .get('/get-favorites', getFavorites)
       .post('/add-to-calender', addToCalender)
       .get('/get-calender', calenderByDay)
+      .delete('/delete-daybook', deleteDaybook)
+      .post('/insert-value-home', insertValueHome)
+      .post ('/insert-sugar', addSugar)
+      .post('/insert-insulin', addInsulin)
 
 
 export default router;

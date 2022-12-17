@@ -6,7 +6,6 @@ app.use(cookieParser());
 export const addToFavorites = (req, res) => {
     try {
         const {user} = req.cookies;
-        console.log(user);
         const secret = "itismysecret";
         const usercookie = jwt.decode(user, secret)
         const {userCookie} = usercookie
@@ -18,7 +17,6 @@ export const addToFavorites = (req, res) => {
 
         connection.query(query, (err, results) => {
             if (err) throw err;
-            console.log();
             
             res.send({ok: true, results: results})
         })

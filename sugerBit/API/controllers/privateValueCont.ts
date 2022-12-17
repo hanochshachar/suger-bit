@@ -6,9 +6,6 @@ app.use(cookieParser())
 export const privateValuePost = (req, res) => {
     try {
         const {user} = req.cookies;
-        // const {user} = cookie.value
-        console.log(user);
-        
         const secret = "itismysecret";
         const usercookie = jwt.decode(user, secret)
         const {userCookie} = usercookie
@@ -24,7 +21,6 @@ export const privateValuePost = (req, res) => {
          connection.query(query, (err, results) => {
             try {
                 if (err) console.log(err);
-                 console.log({results: results});
                  res.send({ok: true, results: results})
             } catch (error) {
                 res.send({error: error.message})

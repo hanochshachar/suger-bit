@@ -1,3 +1,21 @@
+body{
+    text-align: center;
+    .insertValues{
+        position: absolute;
+        width: 30%;
+        height: fit-content;
+        z-index: 1;
+        border: 1px solid black;
+        // display: inline-block;
+        // margin-left: auto;
+        // margin-right: auto;
+        // text-align: left;
+        margin-left: 35%;
+        margin-right:35%;
+        background-color: aquamarine;
+        
+    }
+}
 .top{
     margin: auto;
     display: flex;
@@ -11,12 +29,12 @@
     .total{
         display: flex;
         justify-content: space-between;
-        width: 100vw;
+        width: 80vw;
         
     }
 }
 .totalDetails{
     display: flex;
     justify-content:space-between;
-    width: 100vw;
+    width: 80vw;
 }

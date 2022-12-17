@@ -10,7 +10,7 @@ export const getCalenderAsync = createAsyncThunk(
    async ({date}: date) => {
         try {
             const {data} = await axios.get(`/api-sugar/get-calender?date=${date}`)
-            console.log(data);
+           
             return data
             
         } catch (error) {
