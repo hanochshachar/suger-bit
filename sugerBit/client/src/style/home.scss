@@ -15,6 +15,26 @@ body{
         background-color: aquamarine;
         
     }
+    .target{
+        position: absolute;
+        bottom: 2rem;
+        margin-left: 25%;
+        margin-right:25%;
+        width: 50%;
+        height: 3rem;
+        background-color: aquamarine;
+        border-radius: 50px;
+       
+        .carbo{
+            position: relative;
+            left: 0px;
+            border-radius: 50px;
+            background-color: rgb(2, 36, 2);
+            height: 3rem;
+            z-index: 1;
+            
+        }
+    }
 }
 .top{
     margin: auto;

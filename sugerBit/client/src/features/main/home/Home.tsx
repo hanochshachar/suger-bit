@@ -21,13 +21,16 @@ export const Home = () => {
   const split = allDate.split(" ");
   const date = split[0];
   const currentTime = split[1].slice(0, 5)
-
+  
+   
+  
   useEffect(() => {
     const getData = async () => {
       await dispatch(getCalenderAsync({ date }));
- 
+      
       setProductByTime(groupBy());
     };
+    
     getData();
   }, [selectedValueCalender]);
     
@@ -65,6 +68,10 @@ export const Home = () => {
       
     }
   }
+
+  const sumAllCarbo = (selectedValueCalender as any).reduce(
+    (acc: any, current: any) =>  acc + (current.carbohydrates || 0), 0
+)
 
   return (
     <>
@@ -137,6 +144,12 @@ export const Home = () => {
         
         })}
         
+      </div>
+      <div className="target"> 
+        <div className="carbo">
+        {sumAllCarbo}
+        </div>
+
       </div>
     </>
   );
