@@ -14,8 +14,7 @@ export const FavoritesCard = ({id, name, unit, grams, carbohydrates,
     const handleCalender =()=>{
      dispatch(addToCal({name, unit, grams, carbohydrates,withprotein})) ;
      console.log(name, unit, grams, carbohydrates,withprotein);
-    }
-    console.log(selectedStart);
+    };
     
     
     

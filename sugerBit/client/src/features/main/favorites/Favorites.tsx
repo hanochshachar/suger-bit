@@ -38,7 +38,7 @@ export const Favorites = () => {
     console.log(result);
       if(result?.length  !== undefined){
     setSearch(result)
-    console.log(search)};
+    };
     
   }
 
@@ -69,8 +69,6 @@ export const Favorites = () => {
         const split = allDate.split(" ")
         const time = split[1]
         const date = split[0]
-        console.log(date);
-        console.log(time);
         
         selectedStart.forEach((value) => {
           const name = value.name

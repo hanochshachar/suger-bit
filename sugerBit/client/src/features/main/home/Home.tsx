@@ -10,6 +10,9 @@ import { getCalenderSelected } from "../../slices/getCalenderSlice";
 import { getCalenderAsync } from "../../api/getCalenderAPI";
 import { HomeCardDetails } from "./HomeCardDetails";
 import axios from "axios";
+import { addTarget, selectedCarboTarget } from "../../slices/carboTargetSlice";
+import { addCarboCount, selectedCarboCount } from "../../slices/carboCountSlice";
+import {addSumCarbo, selectedSumCarbo} from '../../slices/sumAllCarboSlice'
 
 export const Home = () => {
   const [displayDetails, setDisplayDetails] = useState<string | null>(null);
@@ -17,6 +20,9 @@ export const Home = () => {
   const [insert, setInsert] = useState<boolean>(false)
   const dispatch: any = useAppDispatch();
   const selectedValueCalender = useAppSelector(getCalenderSelected);
+  const selectedTarget = useAppSelector(selectedCarboTarget);
+  const selectSumCarbo: any = useAppSelector(selectedSumCarbo)
+  const carboCount = useAppSelector(selectedCarboCount)
   const allDate = new Date().toISOString().slice(0, 19).replace("T", " ");
   const split = allDate.split(" ");
   const date = split[0];
@@ -32,7 +38,7 @@ export const Home = () => {
     };
     
     getData();
-  }, [selectedValueCalender]);
+  }, []);
     
   const groupBy = () => {
     const groupByTime = (selectedValueCalender as any).reduce(
@@ -72,6 +78,44 @@ export const Home = () => {
   const sumAllCarbo = (selectedValueCalender as any).reduce(
     (acc: any, current: any) =>  acc + (current.carbohydrates || 0), 0
 )
+
+
+const hadleCarboTarget = (ev: any) => {
+  ev.preventDefault();
+  // setCarboTarget(ev.target.elements.carboTarget.value)
+  console.log(selectedTarget);
+  dispatch(addTarget(ev.target.elements.carboTarget.value))
+}
+
+useEffect(() => {
+  dispatch(addSumCarbo(sumAllCarbo))
+ 
+  const length: number = (document.getElementById('target') as HTMLElement).clientWidth
+  const carbo = document.getElementsByClassName('carbo')
+  console.log(length);
+  console.log(carboCount);
+    console.log(selectSumCarbo);
+  let result = 0
+  console.log(result);
+  console.log(selectedTarget);
+  
+  if( selectedTarget !== 0 && Number(selectedTarget) < length) {
+     result = length / Number(selectedTarget)
+
+  
+    dispatch(addCarboCount(selectSumCarbo * result));
+    
+    
+    
+    (carbo[0] as any).style.width = `${carboCount}px`
+    console.log((carbo[0] as any).style.width, carboCount, result);
+    
+  }
+
+  
+}, [selectedTarget])
+
+
 
   return (
     <>
@@ -145,9 +189,13 @@ export const Home = () => {
         })}
         
       </div>
-      <div className="target"> 
+      <form onSubmit={hadleCarboTarget}>
+        <input type="number" name="carboTarget" />
+        <input type="submit" value="V" />
+      </form>
+      <div className="target" id="target"> 
         <div className="carbo">
-        {sumAllCarbo}
+        {selectSumCarbo}
         </div>
 
       </div>

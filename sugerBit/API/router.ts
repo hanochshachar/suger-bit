@@ -1,5 +1,6 @@
 import express from 'express';
 import { addToCalender } from './controllers/addCalenderCont';
+import { addTargetCont, getTargetCont, UpdateTargetCont } from './controllers/addTargetCont';
 import { addToFavorites } from './controllers/addToFavorites';
 import { calenderByDay } from './controllers/calenderByDayCont';
 import { deleteDaybook } from './controllers/deleteDaybookCont';
@@ -24,6 +25,9 @@ router.post('/add-user', addUser)
       .post('/insert-value-home', insertValueHome)
       .post ('/insert-sugar', addSugar)
       .post('/insert-insulin', addInsulin)
+      .post('/add-target', addTargetCont)
+      .get('/get-target', getTargetCont)
+      .post('/update-target', UpdateTargetCont)
 
 
 export default router;
