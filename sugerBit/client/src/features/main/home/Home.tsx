@@ -10,9 +10,10 @@ import { getCalenderSelected } from "../../slices/getCalenderSlice";
 import { getCalenderAsync } from "../../api/getCalenderAPI";
 import { HomeCardDetails } from "./HomeCardDetails";
 import axios from "axios";
-import { addTarget, selectedCarboTarget } from "../../slices/carboTargetSlice";
+import {  selectedCarboTarget } from "../../slices/carboTargetSlice";
 import { addCarboCount, selectedCarboCount } from "../../slices/carboCountSlice";
 import {addSumCarbo, selectedSumCarbo} from '../../slices/sumAllCarboSlice'
+import { getTargetAsync } from "../../api/targetAPI";
 
 export const Home = () => {
   const [displayDetails, setDisplayDetails] = useState<string | null>(null);
@@ -79,29 +80,45 @@ export const Home = () => {
     (acc: any, current: any) =>  acc + (current.carbohydrates || 0), 0
 )
 
-
-const hadleCarboTarget = (ev: any) => {
+const handleCarboTarget = async (ev: any) => {
   ev.preventDefault();
-  // setCarboTarget(ev.target.elements.carboTarget.value)
-  console.log(selectedTarget);
-  dispatch(addTarget(ev.target.elements.carboTarget.value))
+  const target =  ev.target.elements.carboTarget.value
+  console.log(date);
+  
+  if(selectedTarget.length === 0){
+  const {data} = await axios.post('/api-sugar/add-target', {date, target})
+  console.log(data);
+  
+  }
+  else{
+    const {data} = await axios.post('/api-sugar/update-target', {date, target})
+    console.log(data);
+    
+  }
 }
+
+useEffect(() => {
+  dispatch(getTargetAsync({date}))
+}, [])
+
+const percentage = Math.round( (100 * selectSumCarbo ) / Number(selectedTarget[0]?.target)) 
 
 useEffect(() => {
   dispatch(addSumCarbo(sumAllCarbo))
  
   const length: number = (document.getElementById('target') as HTMLElement).clientWidth
   const carbo = document.getElementsByClassName('carbo')
-  console.log(length);
-  console.log(carboCount);
-    console.log(selectSumCarbo);
   let result = 0
-  console.log(result);
+  
   console.log(selectedTarget);
   
-  if( selectedTarget !== 0 && Number(selectedTarget) < length) {
-     result = length / Number(selectedTarget)
+  
+  // console.log(percentage);
+  
 
+  if( selectedTarget.length > 0 && Number(selectedTarget[0].target) < length) {
+     result = length / Number(selectedTarget[0].target)
+     console.log(result);
   
     dispatch(addCarboCount(selectSumCarbo * result));
     
@@ -110,6 +127,11 @@ useEffect(() => {
     (carbo[0] as any).style.width = `${carboCount}px`
     console.log((carbo[0] as any).style.width, carboCount, result);
     
+  } else if(selectedTarget.length > 0 && Number(selectedTarget[0].target) > length){
+    result = Number(selectedTarget[0].target) / length
+    dispatch(addCarboCount(selectSumCarbo / result));
+    (carbo[0] as any).style.width = `${carboCount}px`
+
   }
 
   
@@ -189,11 +211,12 @@ useEffect(() => {
         })}
         
       </div>
-      <form onSubmit={hadleCarboTarget}>
+      <form onSubmit={handleCarboTarget}>
         <input type="number" name="carboTarget" />
         <input type="submit" value="V" />
       </form>
-      <div className="target" id="target"> 
+      <div className="target" id="target">
+        <h4>{percentage} %</h4> 
         <div className="carbo">
         {selectSumCarbo}
         </div>

@@ -59,7 +59,6 @@ export const Values = () => {
     console.log(search)};
     
   }
-  console.log(search)
   const handleNavigate = ()=> {
     navigate('/private-value')
   }

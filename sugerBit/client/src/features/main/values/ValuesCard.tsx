@@ -31,9 +31,6 @@ export const ValuesCard = ({id2, name, unit, Weight,
       // console.log(result);
       
      }
-     console.log(selectedStart);
-     
-
     return (
     <button className='value' onClick={handleCalender}>
         <h4>{carbohydrates} גרם </h4>

@@ -53,8 +53,10 @@ export const getTargetCont = (req, res) => {
     const secret = "itismysecret";
     const usercookie = jwt.decode(user, secret);
     const { userCookie } = usercookie;
-    const { date, target } = req.body;
-    const query = `SELECT FROM target WHERE usercookie='${userCookie}' AND date='${date}'`
+    const {date} = req.query;
+    
+    const query = `SELECT date, target FROM target WHERE 
+    usercookie='${userCookie}' AND date='${date}'`
     connection.query(query, (err, results) => {
         try {
             if (err) throw err;

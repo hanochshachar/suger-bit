@@ -3,6 +3,8 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { addUserAsync } from '../api/regAPI';
 import { selectedUser } from '../slices/registerSlice';
 import { useNavigate } from 'react-router-dom';
+import { Base } from './Base';
+import LoginGoogle from './GoogleLogin';
 
 export const Register = () => {
     const dispatch = useAppDispatch()
@@ -37,12 +39,24 @@ export const Register = () => {
     },[selector])
   return (
     <div>
+        <Base/>
+        <select name="language" id="" defaultValue='עברית'>
+            <option value="עברית">עברית</option>
+            <LoginGoogle/>
+        </select>
         <form onSubmit={handleSubmit}>
-            <input type="text" name='firstName' placeholder='first name' required/>
-            <input type="text" name='lastName' placeholder='last name' required/>
-            <input type="text" name='id' placeholder='id' />
-            <input type="email" name="email" placeholder='email' required/>
-            <input type="password" name="password" placeholder='password' required />
+            <div className="nameImage">
+                <div className="name">
+                    <input type="text" name='firstName' placeholder='שם פרטי' required/>
+                    <input type="text" name='lastName' placeholder='שם משפחה' required/>
+                    <input type="text" name='id' placeholder='תעודת זהות' />
+                </div>
+                <div className="image">
+                    <input type="image" src="" alt="תמונה" />
+                </div>
+            </div>
+            
+            <input type="email" name="email" placeholder='אימייל' required/>
             <input type="submit" value="register" />
         </form>
     </div>
