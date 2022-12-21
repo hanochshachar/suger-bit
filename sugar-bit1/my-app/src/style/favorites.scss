@@ -1,0 +1,11 @@
+.top{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+}
+.allFavorites{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}

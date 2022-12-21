@@ -1,0 +1,39 @@
+.top{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+}
+.allValues{
+    display: flex;
+    flex-direction: column;
+    .value{
+        display: flex;
+        justify-content: space-between;
+        background-color: bisque;
+        margin: 0.5rem;
+    
+    }
+}
+
+.detailsPrivate{
+    display:flex;
+    justify-content: center;
+    &_1{
+        display: flex;
+        flex-direction: column;
+    }
+    &_2{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.namedivPrvt{
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+.searchBar{
+    display: flex;
+}
