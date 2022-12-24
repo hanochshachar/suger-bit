@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../../style/home.scss";
 import { Favorites } from "../favorites/Favorites";
@@ -17,7 +17,7 @@ import { getCalenderAsync } from "../../api/getCalenderAPI";
 
 export const Home = () => {
   const [displayDetails, setDisplayDetails] = useState<string | null>(null);
-  const [productByTime, setProductByTime] = useState({});
+  
   const [insert, setInsert] = useState<boolean>(false)
   const dispatch: any = useAppDispatch();
   const selectedValueCalender: any [] = useAppSelector(getCalenderSelected);
@@ -31,15 +31,18 @@ export const Home = () => {
   
    
   
+
   useEffect(() => {
     const getData = async () => {
       await dispatch(getCalenderAsync({ date }));
       
-      setProductByTime(groupBy());
+      // setProductByTime(groupBy());
     };
     
     getData();
   }, []);
+  console.log(selectedValueCalender);
+  
     
   const groupBy = () => {
     const groupByTime = (selectedValueCalender as any).reduce(
@@ -57,6 +60,9 @@ export const Home = () => {
     return groupByTime;
   };
 
+  const productByTime = useMemo( () => {return selectedValueCalender?
+    groupBy(): []}, [selectedValueCalender] );
+
   const handleAddValue = async(ev: any) => {
     ev.preventDefault()
     try {
@@ -66,7 +72,8 @@ export const Home = () => {
       sugar = Number(sugar.value);
       carbohydrates = Number(carbohydrates.value);
       insulin = Number(insulin.value);
-      const {data} = await axios.post('/api-sugar/insert-value-home', {date, time, sugar, carbohydrates, insulin})
+      const {data} = await axios.post('/api-sugar/insert-value-home', 
+      {date, time, sugar, carbohydrates, insulin})
       console.log(data);
       setInsert(false)
       

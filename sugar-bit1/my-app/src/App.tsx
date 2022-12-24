@@ -10,6 +10,7 @@ import { Favorites } from "./main/favorites/Favorites";
 import { Home } from "./main/home/Home";
 import { InsertValue } from "./main/values/InsertValue";
 import { Values } from "./main/values/Values";
+import { Daybook } from "./side/daybook/Daybook";
 import { Login } from "./user/login";
 import { Register } from "./user/register";
 
@@ -23,6 +24,7 @@ function App() {
       <Route path='/favorites' element={<Favorites />}/>
       <Route path='/values' element={<Values/>} />
       <Route path='/private-value' element={<InsertValue/>}/>
+      <Route path="/daybook" element={<Daybook/>} />
 
     </Routes>
     </BrowserRouter>

@@ -5,7 +5,7 @@ export const allValuesAsync = createAsyncThunk(
     'allValues',
    async () => {
         const {data} = await axios.get('/api-sugar/all-values')
-     //    console.log(data);
+        console.log(data);
         
         // const {results} = data;
         // console.log(results);

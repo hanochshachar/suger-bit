@@ -5,9 +5,9 @@ import { addUserAsync } from '../api/regAPI';
 export interface RegisterDetails{
     firstName:string,
     lastName:string,
-    id:string,
+    id?:string,
     email:string,
-    password:string,
+    password?:string,
     cookie:number,
 };
 export interface RegisterState{
@@ -24,18 +24,18 @@ const registerSlice = createSlice({
     name: 'addUser',
     initialState,
     reducers: {},
-    extraReducers: (builder) => {
+    extraReducers: (builder: any) => {
         builder
-            .addCase(addUserAsync.pending, (state) => {
+            .addCase(addUserAsync.pending, (state: any) => {
                 state.status = 'loading';
               })
-            .addCase(addUserAsync.fulfilled, (state, action: PayloadAction<any>) => {
+            .addCase(addUserAsync.fulfilled, (state: any, action: PayloadAction<any>) => {
                 state.status = 'idle';
                 // const {user} = action.payload;
                 // state.user = user;
                 state.user = action.payload
             })
-            .addCase(addUserAsync.rejected, (state) => {
+            .addCase(addUserAsync.rejected, (state: any) => {
                 state.status = 'failed'
             })
     }

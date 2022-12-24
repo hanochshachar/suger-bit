@@ -21,6 +21,8 @@ export const getFavorites = createAsyncThunk(
     'getFavorites',
    async () => {
             const {data} = await axios.get('/api-sugar/get-favorites');
+            console.log(data);
+            
             return data
             
    }

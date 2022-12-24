@@ -125,7 +125,7 @@ export const Values = () => {
                           carbohydrates={value.carbohydrates}
                           withprotein={value.withprotein}
                           id2={index}/>
-        }): allValuesSelected?.map((value: any, index: number) => {
+        }): allValuesSelected && Array.isArray(allValuesSelected) ? allValuesSelected.map((value: any, index: number) => {
           return <ValuesCard key={index}
                         name={value.name}
                         unit={value.unit}
@@ -134,7 +134,9 @@ export const Values = () => {
                         withprotein={value.withprotein}
                         id2={index}/>
                         
-      })}
+      })
+        : console.log('no array')
+        }
 
     </div>
 </>

@@ -17,17 +17,22 @@ export const ValuesCard = ({id2, name, unit, Weight,
     const selectedStart = useAppSelector(selectedCalender)
     const grams = Weight
     
-    const handleAddFavorites = ()=> {
+    const handleAddFavorites = (ev: any)=> {
       try {
           dispatch(addFavoritesAsync({name, unit, grams, 
           carbohydrates, withprotein}))
+          ev.stopPropagation()
+
       } catch (error) {
         console.error(error);
         }
     }
-    const handleCalender =()=>{
+    const handleCalender =(ev: any)=>{
       dispatch(addToCal({name, unit, grams, carbohydrates,withprotein})) ;
       console.log(name, unit, grams, carbohydrates,withprotein);
+     
+      console.log(selectedStart);
+      
       // const result = new Date().toLocaleDateString('sv').replaceAll('-', '');
       // console.log(result);
       

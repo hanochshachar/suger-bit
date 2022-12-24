@@ -15,6 +15,7 @@ import { selectedCalender } from '../../slices/calenderStartSlice';
 import { addCalenderAsync } from '../../api/addCalenderAPI';
 import { AppDispatch } from '../../app/store';
 import { useAppSelector } from '../../app/hooks';
+import { error } from 'console';
 
  
 export const Favorites = () => {
@@ -126,7 +127,8 @@ export const Favorites = () => {
          grams={value.grams} carbohydrates={value.carbohydrates}
           withprotein={value.withprotein} usercookie={value.usercookie}
           image={value.image}/>
-         </div>)}):favoritesSelected?.map((value: any, index: number) => {
+         </div>)}): favoritesSelected && Array.isArray(favoritesSelected) ? 
+         favoritesSelected?.map((value: any, index: number) => {
       return ( 
         <div className="favoritesOne">
         <FavoritesCard key={index} id={value.id} name={value.name} unit={value.unit}
@@ -135,7 +137,11 @@ export const Favorites = () => {
           image={value.image}/>
          </div>
       )
-    })}
+    })
+    : console.log('no array')
+    }
+    
+    
      </div>
 </>
 

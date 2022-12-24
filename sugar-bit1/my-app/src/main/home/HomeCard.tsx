@@ -35,19 +35,11 @@ export const HomeCard = ({
         console.log(data);
       });
       setInsulinBool(false);
+      window.location.reload()
     } catch (error) {
       console.error(error);
     }
   };
-
-  // const handleBoll = () => {
-  //   if(sugarRef.current) {
-  //     sugarRef.current.focus()
-  //   }
-  //   // if(insulinBool && insulinRef.current){
-  //   //   insulinRef.current.focus()
-  //   // }
-  // }
 
   const handleKeyUpIns = async (ev: any) => {
     ev.preventDefault();
@@ -62,6 +54,7 @@ export const HomeCard = ({
           console.log(data);
         });
         setInsulinBool(false);
+        window.location.reload()
       }
     } catch (error) {
       console.error(error);
@@ -80,6 +73,7 @@ export const HomeCard = ({
         console.log(data);
       });}
       setSugarBool(false);
+      window.location.reload()
       
     } catch (error) {
       console.error(error);
@@ -99,30 +93,17 @@ export const HomeCard = ({
           console.log(data);
         });
         setSugarBool(false);
+        window.location.reload()
       }
     } catch (error) {
       console.error(error);
     }
   };
 
-  // const inputElement = document.querySelector(`input[name="sugar"]`);
-  // const inputElementIn = document.querySelector(`input[name="insulin"]`);
-
-  // function handleClick(event: any) {
-  //   if (sugarBool && !inputElement?.contains(event.target)) {
-  //     setSugarBool(false);
-  //   }
-  //   if(insulinBool && !inputElementIn?.contains(event.target)) {
-  //     setInsulinBool(false);
-  //   }
-  // }
-
-  // document.addEventListener("click", handleClick);
-
   return (
     <div className="total">
       {insulinBool === false ? (
-        <h1 onClick={() => setInsulinBool(true)}>אינסולין {insulin}</h1>
+        <h1 onClick={(ev) => { ev.stopPropagation(); setInsulinBool(true)}}>אינסולין {insulin}</h1>
       ) : (
         <input
           type="text"
@@ -135,7 +116,7 @@ export const HomeCard = ({
       )}
       <h1> פחמימות {carbohydrates}</h1>
       {sugarBool === false ? (
-        <h1 onClick={() => {setSugarBool(true)}}>סוכר {sugar}</h1>
+        <h1 onClick={(ev) => { ev.stopPropagation(); setSugarBool(true)}}>סוכר {sugar}</h1>
       ) : (
         <input
           type="text"

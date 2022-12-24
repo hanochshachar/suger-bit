@@ -26,16 +26,16 @@ const privateSlice = createSlice({
     name: 'privateValues',
     initialState,
     reducers: {},
-    extraReducers:((builder) => {
+    extraReducers:((builder: any) => {
         builder
-            .addCase(addPrivateAsync.pending,(state) => {
+            .addCase(addPrivateAsync.pending,(state: any) => {
                 state.status = 'loading'
             })
-            .addCase(addPrivateAsync.fulfilled, (state, action: PayloadAction<any>) => {
+            .addCase(addPrivateAsync.fulfilled, (state: any, action: PayloadAction<any>) => {
                 state.status = 'idle';
                 state.value = action.payload
             })
-            .addCase(addPrivateAsync.rejected, (state)=> {
+            .addCase(addPrivateAsync.rejected, (state: any)=> {
                 state.status = 'failed'
             })
     })

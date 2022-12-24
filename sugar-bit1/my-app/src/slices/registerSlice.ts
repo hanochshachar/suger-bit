@@ -5,10 +5,10 @@ import { addUserAsync } from '../api/regAPI';
 export interface RegisterDetails{
     firstName:string,
     lastName:string,
-    id:string,
+    id?:string,
     email:string,
-    password:string,
-    cookie:number,
+    password?:string,
+    cookie: string,
 };
 export interface RegisterState{
     user: RegisterDetails | null,

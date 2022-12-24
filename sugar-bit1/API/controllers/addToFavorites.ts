@@ -16,7 +16,8 @@ export const addToFavorites = (req, res) => {
              '${carbohydrates}', '${withprotein}', '${userCookie}')`
 
         connection.query(query, (err, results) => {
-            if (err) throw err;
+            if (err) return console.log(err);
+            ;
             
             res.send({ok: true, results: results})
         })
