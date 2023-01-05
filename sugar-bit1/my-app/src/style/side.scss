@@ -1,0 +1,41 @@
+.allSide{
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/backSide.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 40rem;
+    
+    position: absolute;
+    right: 0px;
+    // z-index: 1;
+    .shareBtn{
+        width: 20rem;
+        margin: auto;
+        // position: relative;
+        // bottom: -20rem;
+    }
+
+}
+.sideLink {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    max-height: 30% !important;
+    .linkDe {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        // gap: 0.5rem;
+        padding: 0rem;
+        .imgLink {
+            height: 2rem;
+            width: 2rem;
+            border-radius: 50%;
+            position: relative;
+            left: 8.5rem;
+            margin-bottom: 0px;
+        }
+    }
+    
+}

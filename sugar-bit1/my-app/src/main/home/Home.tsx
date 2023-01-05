@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "../../style/home.scss";
 import { Favorites } from "../favorites/Favorites";
 import { Values } from "../values/Values";
@@ -14,6 +14,9 @@ import {addSumCarbo, selectedSumCarbo} from '../../slices/sumAllCarboSlice'
 import { getTargetAsync } from "../../api/targetAPI";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getCalenderAsync } from "../../api/getCalenderAPI";
+import noX from '../../../src/images/aftVFLno.png';
+import noV from '../../../src/images/noV.png';
+import side from '../../images/side.png'
 
 export const Home = () => {
   const [displayDetails, setDisplayDetails] = useState<string | null>(null);
@@ -27,6 +30,8 @@ export const Home = () => {
   const allDate = new Date().toISOString().slice(0, 19).replace("T", " ");
   const split = allDate.split(" ");
   const date = split[0];
+  console.log(date);
+  
   const currentTime = split[1].slice(0, 5)
   
    
@@ -133,8 +138,6 @@ useEffect(() => {
   
     dispatch(addCarboCount(selectSumCarbo * result));
     
-    
-    
     (carbo[0] as any).style.width = `${carboCount}px`
     console.log((carbo[0] as any).style.width, carboCount, result);
     
@@ -153,11 +156,12 @@ useEffect(() => {
   return (
     <>
       <div className="top">
-        <div className="v">v</div>
-        <button className="insert" onClick={() => setInsert(true)}>
-          <h1>הזן ערכים</h1>
-        </button>
-        <div className="x">x</div>
+        <div className="v t" ><img src={noV} alt="" /></div>
+        <div className="insert t" onClick={() => setInsert(true)}>
+          <h3>הזן ערכים</h3>
+        </div>
+        <div className="x t" ><img src={noX} alt="" /></div>
+        <Link to='/side' className="menuBtn" ><img className="menuImg" src={side} alt="" /></Link>
       </div>
       {insert === true && <form className="insertValues" onSubmit={handleAddValue}>
         <div className="date1">
@@ -190,7 +194,7 @@ useEffect(() => {
         {Object.keys(productByTime)?.map((key: string, i: number) => {
           const key1 = key.slice(0, 5)
             const products: any[] =
-            productByTime[key as keyof typeof Values];
+            productByTime[key as keyof typeof productByTime];
           const sumCarbohydrates = products.reduce(
             (acc, cur) => acc + (cur.carbohydrates || 0),
             0

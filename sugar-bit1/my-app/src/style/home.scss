@@ -1,5 +1,8 @@
 body{
     text-align: center;
+    background-image: url('../../src/images/background.JPG');
+    background-repeat: no-repeat;
+    background-size: cover;
     .insertValues{
         position: absolute;
         width: 30%;
@@ -42,6 +45,25 @@ body{
     justify-content: center;
     align-items: center;
     gap: 7rem;
+    .t{
+        margin: 0px;
+        padding: 0px;
+    }
+    .insert{
+        border: blue solid 3px;
+        border-radius: 50%;
+        // background-color: none;
+        height: 8rem;
+        width: 8rem;
+        // background-size: ;
+        backdrop-filter: brightness(130%);
+        h3{
+            
+            position: relative;
+            top: 3rem;
+        }
+
+    }
 }
 .firstValues{
     display: flex;
@@ -57,4 +79,12 @@ body{
     display: flex;
     justify-content:space-between;
     width: 80vw;
+}
+.menuBtn{
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    .menuImg{
+        width: 3rem;
+    }
 }

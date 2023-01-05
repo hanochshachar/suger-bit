@@ -4,6 +4,7 @@ import { addTargetCont, getTargetCont, UpdateTargetCont } from './controllers/ad
 import { addToFavorites } from './controllers/addToFavorites';
 import { calenderByDay } from './controllers/calenderByDayCont';
 import { deleteDaybook } from './controllers/deleteDaybookCont';
+import { getFriday, getMonday, getSaturday, getSunday, getThursday, getTuesday, getWednesday } from './controllers/getCalenderGrafCont';
 import { getFavorites } from './controllers/getFavorites';
 import { insertValueHome } from './controllers/insertValueHomeCont';
 import { addInsulin, addSugar } from './controllers/insulinSugarCont';
@@ -28,6 +29,13 @@ router.post('/add-user', addUser)
       .post('/add-target', addTargetCont)
       .get('/get-target', getTargetCont)
       .post('/update-target', UpdateTargetCont)
+      .get('/get-sunday' , getSunday)
+      .get('/get-monday', getMonday)
+      .get('/get-tuesday', getTuesday)
+      .get('/get-wednesday', getWednesday)
+      .get('/get-thursday', getThursday)
+      .get('/get-friday', getFriday)
+      .get('/get-saturday', getSaturday)
 
 
 export default router;

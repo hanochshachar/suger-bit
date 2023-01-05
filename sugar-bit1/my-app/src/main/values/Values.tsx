@@ -11,6 +11,9 @@ import { allValuesAsync } from '../../api/valuesAPI';
 import { selectedCalender } from '../../slices/calenderStartSlice';
 import { addCalenderAsync } from '../../api/addCalenderAPI';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import side from '../../images/side.png'
+import V from '../../images/V.png'
+import X from '../../images/X.png'
 
 export const Values = () => {
   const navigate = useNavigate()
@@ -93,13 +96,15 @@ export const Values = () => {
   return (
 <>
     <div className="top">
-        <button className='v' onClick={handleAddCalender}>v</button>
-        <div className="insert"><h1>פחמימות</h1>
+        <div className='v' onClick={handleAddCalender}><img src={V} alt="" /></div>
+        <div className="insert"><h2>פחמימות</h2>
           {(selectedStart as any).reduce((acc: any, cur: any) =>{
            return acc + cur.carbohydrates
            }, 0)}</div>
-        <button className='x'>x</button>
+        <div className='x'><img src={X} alt="" /></div>
+        <div className="menuBtn"><img className="menuImg" src={side} alt="" /></div>
     </div>
+
     <Navbar/>
     <div className="searchBar">
     <form onSubmit={handleSearch}>

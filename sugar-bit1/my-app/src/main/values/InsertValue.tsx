@@ -18,7 +18,8 @@ export const InsertValue = () => {
         console.log();
         
         try {
-            let {name, unit, grams, carbohydrates, Fats, proteins, calories, Cholesterol } = ev.target.form.elements;
+            let {name, unit, grams, carbohydrates, Fats,
+                 proteins, calories, Cholesterol } = ev.target.form.elements;
                 name = name.value;
                 unit = unit.value;
                 grams = grams.value;

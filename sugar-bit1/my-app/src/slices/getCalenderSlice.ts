@@ -7,7 +7,7 @@ export interface calenderDetails{
     name: string,
     unit: number,
     grams: number,
-    date: string,
+    date: Date,
     time: string,
     suger: number,
     insulin: number,

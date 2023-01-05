@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
     gap: 7rem;
+    .v{
+        border: none;
+        background-image: inherit;
+    }
 }
 .allFavorites{
     display: grid;

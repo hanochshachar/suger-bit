@@ -16,6 +16,10 @@ import { addCalenderAsync } from '../../api/addCalenderAPI';
 import { AppDispatch } from '../../app/store';
 import { useAppSelector } from '../../app/hooks';
 import { error } from 'console';
+import side from '../../images/side.png'
+import V from '../../images/V.png'
+import X from '../../images/X.png'
+
 
  
 export const Favorites = () => {
@@ -93,12 +97,13 @@ export const Favorites = () => {
   return (
 <>
     <div className="top">
-        <button className="v" onClick={handleAddCalender}>v</button>
-        <div className="insert"><h1>פחמימות</h1> <br/>
+        <div className="v" onClick={handleAddCalender}><img src={V} alt="" /></div>
+        <div className="insert"><h2>פחמימות</h2> <br/>
         {(selectedStart as any).reduce((acc: any, cur: any) =>{
            return acc + cur.carbohydrates
            }, 0)}</div>
-        <div className="x">x</div>
+        <div className="x"><img src={X} alt="" /></div>
+        <div className="menuBtn"><img className="menuImg" src={side} alt="" /></div>
     </div>
 
     <Navbar/>

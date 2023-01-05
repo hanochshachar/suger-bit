@@ -10,10 +10,14 @@ export const calenderByDay = (req, res) => {
         const usercookie = jwt.decode(user, secret)
         const {userCookie} = usercookie
         const {date} = req.query;
-        const query = `SELECT * FROM daybook WHERE usercookie='${userCookie}' AND date='${date}'`
+        
+        const query = `SELECT * FROM daybook WHERE usercookie='${userCookie}' 
+                        AND date='${date}'`
         connection.query(query, (err, results) => {
             try {
-                if (err) throw err;
+                if (err) console.log(err);
+                 console.log(results);
+            
                 res.send(results)
                 
             } catch (error) {

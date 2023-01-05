@@ -1,0 +1,132 @@
+body {
+    text-align: center;
+    align-items: center;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+
+
+}
+
+.daybookDetails {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin: auto;
+}
+
+.calculate {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    background-color: rgb(66, 106, 93);
+    position: absolute;
+    bottom: 1rem;
+    margin-left: 10vw;
+    margin-right: 10vw;
+
+}
+
+.getWeek {
+    display: flex;
+    justify-content: space-around;
+}
+
+.allWeek {
+    // align-items: center;
+    margin: auto;
+    width: 80vw;
+    height: 25vh;
+    // display: flex;
+    // justify-content: space-around;
+    gap: 5rem;
+    background-color: aquamarine;
+    border: black solid 1px;
+    border-radius: 25px;
+    // position: relative;
+
+    h6 {
+        height: 13%;
+        margin-block: 2%;
+    }
+
+    .allDays {
+        display: flex;
+        justify-content: space-around;
+        height: 71%;
+
+        .day {
+            // display: flex;
+            // flex-direction: column;
+            width: 12%;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+
+            .bar {
+                background-color: chocolate;
+                max-height: 85% !important;
+            }
+
+            h4 {
+                margin: 0.5%;
+            }
+        }
+
+    }
+}
+
+.bars {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.allWeekIns {
+    // align-items: center;
+    margin: auto;
+    width: 80vw;
+    height: 25vh;
+    // display: flex;
+    // justify-content: space-around;
+    gap: 5rem;
+    background-color: aquamarine;
+    border: black solid 1px;
+    border-radius: 25px;
+    
+    h6 {
+        height: 13%;
+        margin-block: 2%;
+    }
+    .allDaysIns {
+        display: flex;
+        justify-content: space-around;
+        height: 71%;
+
+        // height: inherit;
+     
+        .day {
+            width: 12%;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+
+            // padding-bottom: 20rem;
+            .bar {
+                background-color: chocolate;
+                max-height: 85% !important;
+
+
+
+            }
+            h4 {
+                margin: 0.5%;
+            }
+        }
+
+    }
+}
