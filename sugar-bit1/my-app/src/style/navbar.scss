@@ -11,8 +11,24 @@
     .nav{
         text-decoration: none;
         border: solid blue 1px;
-        border-radius: 25px;
+        border-radius: 10px;
         width: 7rem;
         backdrop-filter: brightness(130%);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        height: 2rem;
+        // gap: 1rem;
+        justify-content: space-around;
+        .content{
+            position: relative;
+            // left: 0.7rem;
+        }
+        
+        .imgNav{
+            height: 2rem;
+            padding: 0px;
+            margin: 0px;
+        }
     }
 }

@@ -16,7 +16,8 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getCalenderAsync } from "../../api/getCalenderAPI";
 import noX from '../../../src/images/aftVFLno.png';
 import noV from '../../../src/images/noV.png';
-import side from '../../images/side.png'
+import side from '../../images/side.png';
+import colored from '../../images/colored+.png'
 
 export const Home = () => {
   const [displayDetails, setDisplayDetails] = useState<string | null>(null);
@@ -158,7 +159,9 @@ useEffect(() => {
       <div className="top">
         <div className="v t" ><img src={noV} alt="" /></div>
         <div className="insert t" onClick={() => setInsert(true)}>
-          <h3>הזן ערכים</h3>
+          <img className="colored" src={colored} alt="" />
+          <h3 className="ins">הזן ערכים</h3>
+
         </div>
         <div className="x t" ><img src={noX} alt="" /></div>
         <Link to='/side' className="menuBtn" ><img className="menuImg" src={side} alt="" /></Link>

@@ -20,13 +20,16 @@
 .sideLink {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 1rem;
     max-height: 30% !important;
+    padding: 1rem;
     .linkDe {
         text-decoration: none;
         display: flex;
         flex-direction: column;
         // gap: 0.5rem;
+        // margin: 1rem;
         padding: 0rem;
         .imgLink {
             height: 2rem;

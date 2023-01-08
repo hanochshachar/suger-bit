@@ -13,7 +13,9 @@ import { addCalenderAsync } from '../../api/addCalenderAPI';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import side from '../../images/side.png'
 import V from '../../images/V.png'
-import X from '../../images/X.png'
+import X from '../../images/X.png';
+import apple from '../../images/apple.png';
+import plus from '../../images/plus.png'
 
 export const Values = () => {
   const navigate = useNavigate()
@@ -39,6 +41,7 @@ export const Values = () => {
     
     setSuggestion(matches)
     setText(text)
+    
   }
 
   useEffect(()=>{
@@ -48,6 +51,7 @@ export const Values = () => {
   const onSuggestHandler = (value:any)=> {
     setText(value)
     setSuggestion([])
+    // document.forms["searchForm"].submit()
     
   }
 
@@ -93,31 +97,38 @@ export const Values = () => {
     }
   }
 
+  const sumCarbo = (selectedStart as any).reduce((acc: any, cur: any) =>{
+    return  acc + cur.carbohydrates
+  }, 0)
+
   return (
 <>
     <div className="top">
         <div className='v' onClick={handleAddCalender}><img src={V} alt="" /></div>
-        <div className="insert"><h2>פחמימות</h2>
-          {(selectedStart as any).reduce((acc: any, cur: any) =>{
-           return acc + cur.carbohydrates
-           }, 0)}</div>
+        <div className="insert">
+          <img className='topApple' src={apple} alt="" />
+          <h3 className='sumTop'>{sumCarbo}</h3>
+          <h2 className='car'>פחמימות</h2>
+          </div>
         <div className='x'><img src={X} alt="" /></div>
         <div className="menuBtn"><img className="menuImg" src={side} alt="" /></div>
     </div>
 
     <Navbar/>
     <div className="searchBar">
-    <form onSubmit={handleSearch}>
-      <input type="text" placeholder='חיפוש' name='search'
+    <form autoComplete="off" onSubmit={handleSearch} name='searchForm'>
+      <input className='search' type="text" placeholder='חיפוש' name='search'
        onChange={ev => onChangeHandler(ev.target.value)}
        value={text}/>
       <input type="submit" hidden />
     </form>
-    <button onClick={handleNavigate}>+</button>
+    <div onClick={handleNavigate}><img className='addToList' src={plus} alt="" /></div>
     </div>
     <div className="suggestions">
     { suggestion !== null && suggestion.map((offer: any)=> {
-      return( <div onClick={()=>onSuggestHandler(offer.name)}>{offer.name}</div>)
+      return( <div className='suggest'
+      // 
+       onClick={()=>{onSuggestHandler(offer.name) }}>{offer.name}</div> )
     })}
     </div>
     <div className="allValues">

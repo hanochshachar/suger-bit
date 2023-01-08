@@ -1,39 +1,104 @@
-.top{
+.top {
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 7rem;
-}
-.allValues{
-    display: flex;
-    flex-direction: column;
-    .value{
+    .insert{
         display: flex;
-        justify-content: space-between;
-        background-color: bisque;
-        margin: 0.5rem;
-    
+        flex-direction: column;
+        .topApple{
+            width: 3rem;
+            margin: auto;
+            margin-bottom: 0px;
+        }
+        .sumTop{
+            font-size: 1.5rem;
+            color: #0f790d;
+            margin: 0px;
+            position: relative;
+            top: 0rem;
+        }
+        .car{
+            font-size: 1.5rem;
+            color: #0e660d;
+            margin: 1rem;
+            position: relative;
+            bottom: 1rem;
+        }
     }
 }
 
-.detailsPrivate{
-    display:flex;
+.allValues {
+    display: flex;
+    flex-direction: column;
+
+    .value {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 1px rgb(21, 21, 150);
+        backdrop-filter: brightness(130%);
+      
+    }
+}
+.suggestions{
+   position: relative;
+    .suggest {
+        
+        position: sticky;
+        height: 2rem;
+        width: 25%;
+        border: 1px solid #73AD21;
+        background-color: blueviolet;
+        left: 37.5%;
+        right: 37.5%;
+        // margin-bottom: -12.5%;
+        
+    }
+}
+
+.detailsPrivate {
+    display: flex;
     justify-content: center;
-    &_1{
+
+    &_1 {
         display: flex;
         flex-direction: column;
     }
-    &_2{
+
+    &_2 {
         display: flex;
         flex-direction: column;
     }
 }
-.namedivPrvt{
+
+.namedivPrvt {
     margin: auto;
     text-align: center;
     align-items: center;
 }
-.searchBar{
+
+.searchBar {
     display: flex;
+    justify-content: center;
+    background-image: inherit;
+    gap: 2rem;
+    border-bottom: solid 1px rgb(21, 21, 150);
+    .search {
+        background: rgba(0, 0, 0, 0);
+        // border: rgb(12, 12, 45);
+        height: 3rem;
+        width: 20rem;
+        backdrop-filter: brightness(130%)
+    }
+   
+}
+
+::placeholder {
+    color: black;
+    margin: auto;
+    size: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
 }
