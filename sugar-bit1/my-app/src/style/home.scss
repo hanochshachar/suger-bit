@@ -3,20 +3,33 @@ body{
     background-image: url('../../src/images/background.JPG');
     background-repeat: no-repeat;
     background-size: cover;
-    .insertValues{
-        position: absolute;
-        width: 30%;
-        height: fit-content;
-        z-index: 1;
-        border: 1px solid black;
-        // display: inline-block;
-        // margin-left: auto;
-        // margin-right: auto;
-        // text-align: left;
-        margin-left: 35%;
-        margin-right:35%;
-        background-color: aquamarine;
-        
+    .topCenter{
+        position:absolute;
+        top: 2rem;
+        width: 75%;
+        margin-left: 18.5%;
+        margin-right: 12.5%;
+        display: flex;
+       gap: 9rem;
+        .insertValues{
+            // position: absolute;
+            width: 30%;
+            height: fit-content;
+            z-index: 1;
+            border: 1px solid black;
+            background-color: aquamarine;
+            
+        }
+    }
+    .top{
+        margin: 8rem;
+        .menuImg{
+            height: 3rem;
+            width: 1rem;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+        }
     }
     .target{
         position: absolute;
@@ -25,18 +38,35 @@ body{
         margin-right:25%;
         width: 50%;
         height: 3rem;
-        background-color: rgb(11, 129, 90);
+        background-color: rgb(124, 219, 87);
         border-radius: 50px;
        
         .carbo{
-            position: relative;
-            left: 0px;
             border-radius: 50px;
             background-color: rgb(7, 154, 7);
             height: 3rem;
             z-index: 1;
-            
+            .carImg{
+                position: absolute;
+                left: 0.5rem;
+                top: 0.3rem;
+            }
+           }
+        .prec{
+            position: relative;
+            right: 25rem;
+            bottom: 1.5rem;
         }
+        .dis{
+            position: fixed;
+        }
+        .sum{
+            z-index: 2;
+            position: fixed;
+            left: 48rem;
+            bottom: 1.4rem;
+        }
+       
     }
 }
 .top{
@@ -79,8 +109,23 @@ body{
     flex-direction: column;
     .total{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 80vw;
+        margin: auto;
+        background-color: rgb(123, 215, 123);
+        height: 3.5rem;
+        .elements{
+            display: flex;
+            position: relative;
+            top: 0.7rem;
+            .elemImg{
+                height: 1.7rem;
+            }
+        }
+        h3{
+            position: relative;
+            bottom: 0.3rem;
+        }
         
     }
 }

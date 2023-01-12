@@ -4,6 +4,14 @@
     justify-content: center;
     align-items: center;
     gap: 7rem;
+    .topCenter{
+        top: 2rem;
+        width: 75%;
+        margin-left: 18.5%;
+        margin-right: 12.5%;
+        display: flex;
+       gap: 9rem;
+    }
     .insert{
         display: flex;
         flex-direction: column;
@@ -90,11 +98,12 @@
         height: 3rem;
         width: 20rem;
         backdrop-filter: brightness(130%)
+        
     }
    
 }
 
-::placeholder {
+.search::placeholder {
     color: black;
     margin: auto;
     size: 2rem;

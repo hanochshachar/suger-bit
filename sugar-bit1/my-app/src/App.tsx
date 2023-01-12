@@ -36,7 +36,7 @@ function App() {
       <Route path='/share' element={<Share/>}/>
       <Route path='/sugar-gauge' element={<SugarGauge/>}/>
       <Route path='/tutorials' element={<Tutorials/>}/>
-      <Route path='/side' element={<Side/>}/>
+      {/* <Route path='/side' element={<Side/>}/> */}
 
     </Routes>
     </BrowserRouter>

@@ -19,6 +19,7 @@ import { error } from 'console';
 import side from '../../images/side.png'
 import V from '../../images/V.png'
 import X from '../../images/X.png'
+import { Side } from '../../side/Side';
 
 
  
@@ -29,6 +30,7 @@ export const Favorites = () => {
   const [search, setSearch] = useState<any>([])
   const [text, setText] = useState('');
   const [suggestion, setSuggestion] = useState<any>([]);
+  const [sideBool, setSideBool] = useState<boolean>(false);
   const selectedCalenderRes = useAppSelector(selectedCalender)
   
   const navigate = useNavigate()
@@ -97,20 +99,27 @@ export const Favorites = () => {
   return (
 <>
     <div className="top">
+      <div className="topCenter">
+
         <div className="v" onClick={handleAddCalender}><img src={V} alt="" /></div>
         <div className="insert"><h2>פחמימות</h2> <br/>
         {(selectedStart as any).reduce((acc: any, cur: any) =>{
            return acc + cur.carbohydrates
            }, 0)}</div>
         <div className="x"><img src={X} alt="" /></div>
-        <div className="menuBtn"><img className="menuImg" src={side} alt="" /></div>
+      </div>
+      <div className="menuBtn" onClick={() => setSideBool(true)}>
+          <img className="menuImg" src={side} alt="" />
+        </div>
     </div>
-
+    {sideBool === true && <div className="side">
+      <Side setSideBool={setSideBool}/>
+      </div>  }
     <Navbar/>
 
-    <div className="searchBar">
+    <div className="searchBarF">
     <form onSubmit={handleSearch}>
-      <input type="text" placeholder='חיפוש' name='search'
+      <input type="text" className='search' placeholder='חיפוש' name='search'
        onChange={ev => onChangeHandler(ev.target.value)}
        value={text}/>
       <input type="submit" hidden />

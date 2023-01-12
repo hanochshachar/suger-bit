@@ -4,6 +4,9 @@ import { getCalenderAsync } from "../../api/getCalenderAPI";
 import { getCalenderSelected } from "../../slices/getCalenderSlice";
 import axios from "axios";
 import "../../style/home.scss";
+import blood from '../../images/blood1.png';
+import carbo from '../../images/carbo1.png';
+import insulinImg from '../../images/ins1.png';
 interface firstValue {
   name: string;
   sugar: number;
@@ -103,7 +106,7 @@ export const HomeCard = ({
   return (
     <div className="total">
       {insulinBool === false ? (
-        <h1 onClick={(ev) => { ev.stopPropagation(); setInsulinBool(true)}}>אינסולין {insulin}</h1>
+        <div className="elements" onClick={(ev) => { ev.stopPropagation(); setInsulinBool(true)}}> 'יחי {insulin}  <img className="elemImg" src={insulinImg} alt="" /></div>
       ) : (
         <input
           type="text"
@@ -114,9 +117,9 @@ export const HomeCard = ({
           ref={insulinRef}
         />
       )}
-      <h1> פחמימות {carbohydrates}</h1>
+      <div className="elements"> 'גר  {carbohydrates} <img className="elemImg" src={carbo} alt="" /></div>
       {sugarBool === false ? (
-        <h1 onClick={(ev) => { ev.stopPropagation(); setSugarBool(true)}}>סוכר {sugar}</h1>
+        <div className="elements" onClick={(ev) => { ev.stopPropagation(); setSugarBool(true)}}>  גר  {sugar} <img  className="elemImg"  src={blood} alt="" /></div>
       ) : (
         <input
           type="text"
@@ -127,7 +130,7 @@ export const HomeCard = ({
           ref={sugarRef}
         />
       )  }
-      <h1>{name}</h1>
+      <h3>{name}</h3>
     </div>
   );
 };

@@ -6,9 +6,10 @@
     background-size: cover;
     width: 40rem;
     
-    position: absolute;
+    position: fixed;
     right: 0px;
-    // z-index: 1;
+    top: 0px;
+    z-index: 2;
     .shareBtn{
         width: 20rem;
         margin: auto;

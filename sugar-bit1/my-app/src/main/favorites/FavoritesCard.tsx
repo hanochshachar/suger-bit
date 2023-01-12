@@ -21,9 +21,9 @@ export const FavoritesCard = ({id, name, unit, grams, carbohydrates,
     
     
   return (
-    <button onClick={handleCalender}>
+    <div onClick={handleCalender}>
       <img src={omelet} alt="food-image" />
       <h3>{name}</h3>
-    </button>
+    </div>
   )
 }

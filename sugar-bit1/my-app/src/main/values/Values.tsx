@@ -16,12 +16,14 @@ import V from '../../images/V.png'
 import X from '../../images/X.png';
 import apple from '../../images/apple.png';
 import plus from '../../images/plus.png'
+import { Side } from '../../side/Side';
 
 export const Values = () => {
   const navigate = useNavigate()
   const [text, setText] = useState('')
   const [suggestion, setSuggestion] = useState<any>([]);
   const [search, setSearch] = useState<any>([])
+  const [sideBool, setSideBool] = useState<boolean>(false);
   const dispatch = useAppDispatch()
   const allValuesSelected = useAppSelector(selectedValues);
   const selectedStart = useAppSelector(selectedCalender)
@@ -104,6 +106,8 @@ export const Values = () => {
   return (
 <>
     <div className="top">
+        <div className="topCenter">
+
         <div className='v' onClick={handleAddCalender}><img src={V} alt="" /></div>
         <div className="insert">
           <img className='topApple' src={apple} alt="" />
@@ -111,9 +115,14 @@ export const Values = () => {
           <h2 className='car'>פחמימות</h2>
           </div>
         <div className='x'><img src={X} alt="" /></div>
-        <div className="menuBtn"><img className="menuImg" src={side} alt="" /></div>
+        </div>
+        <div className="menuBtn" onClick={() => setSideBool(true)}>
+          <img className="menuImg" src={side} alt="" />
+        </div>
     </div>
-
+    {sideBool === true && <div className="side">
+      <Side setSideBool={setSideBool}/>
+      </div>  }
     <Navbar/>
     <div className="searchBar">
     <form autoComplete="off" onSubmit={handleSearch} name='searchForm'>
