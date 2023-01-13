@@ -57,31 +57,31 @@ export const Carbo = ({
         <h6>סה"כ פחמימות יומי</h6>
         <div className="allDaysIns">
           <div className="day">
-            <div className="1barC bar"></div>
+            <div className="1barC barC"></div>
             <h4>א</h4>
           </div>
           <div className="day">
-            <div className="2barC bar"></div>
+            <div className="2barC barC"></div>
             <h4>ב</h4>
           </div>
           <div className="day">
-            <div className="3barC bar"></div>
+            <div className="3barC barC"></div>
             <h4>ג</h4>
           </div>
           <div className="day">
-            <div className="4barC bar"></div>
+            <div className="4barC barC"></div>
             <h4>ד</h4>
           </div>
           <div className="day">
-            <div className="5barC bar"></div>
+            <div className="5barC barC"></div>
             <h4>ה</h4>
           </div>
           <div className="day">
-            <div className="6barC bar"></div>
+            <div className="6barC barC"></div>
             <h4>ו</h4>
           </div>
           <div className="day">
-            <div className="7barC bar"></div>
+            <div className="7barC barC"></div>
             <h4>ז</h4>
           </div>
         </div>

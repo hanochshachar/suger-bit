@@ -56,31 +56,31 @@ export const Insulin = ({
         <h6>סה"כ אינסולין יומי</h6>
         <div className="allDaysIns">
           <div className="day">
-            <div className="1barI bar"></div>
+            <div className="1barI barIns"></div>
             <h4>א</h4>
           </div>
           <div className="day">
-            <div className="2barI bar"></div>
+            <div className="2barI barIns"></div>
             <h4>ב</h4>
           </div>
           <div className="day">
-            <div className="3barI bar"></div>
+            <div className="3barI barIns"></div>
             <h4>ג</h4>
           </div>
           <div className="day">
-            <div className="4barI bar"></div>
+            <div className="4barI barIns"></div>
             <h4>ד</h4>
           </div>
           <div className="day">
-            <div className="5barI bar"></div>
+            <div className="5barI barIns"></div>
             <h4>ה</h4>
           </div>
           <div className="day">
-            <div className="6barI bar"></div>
+            <div className="6barI barIns"></div>
             <h4>ו</h4>
           </div>
           <div className="day">
-            <div className="7barI bar"></div>
+            <div className="7barI barIns"></div>
             <h4>ז</h4>
           </div>
         </div>

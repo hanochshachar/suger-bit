@@ -9,6 +9,9 @@ import { calenderDetails } from "../../../slices/addCalenderSlice";
 import axios from "axios";
 import { Insulin } from "./Insulin";
 import { Carbo } from "./Carbo";
+import noV from '../../../images/noV.png'
+import X from '../../../images/X.png';
+import daybook from '../../../images/daybook1.png';
 
 export const Graf = () => {
   const dispatch = useAppDispatch();
@@ -310,9 +313,16 @@ export const Graf = () => {
   return (
     <>
       <div className="top">
-        <div className="V">V</div>
-        <h1>יומן</h1>
-        <div className="X">X</div>
+        <div className="V">
+          <img src={noV} alt="" />
+        </div>
+        <div className="titleDB">
+        <img className="imgDB" src={daybook} alt="" />
+        <h3 className="titleText">יומן</h3>
+        </div>
+        <div className="X">
+          <img src={X} alt="" />
+        </div>
       </div>
 
       <NavDaybook />

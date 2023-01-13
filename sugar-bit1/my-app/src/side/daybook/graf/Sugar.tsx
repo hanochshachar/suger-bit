@@ -68,31 +68,31 @@ export const Sugar = ({
         <h6>ממוצע סוכר יומי</h6>
         <div className="allDays">
         <div className="day">
-          <div className="1bar bar"></div>
+          <div className="1bar barS"></div>
           <h4>א</h4>
         </div>
         <div className="day">
-          <div className="2bar bar"></div>
+          <div className="2bar barS"></div>
           <h4>ב</h4>
         </div>
         <div className="day">
-          <div className="3bar bar"></div>
+          <div className="3bar barS"></div>
           <h4>ג</h4>
         </div>
         <div className="day">
-          <div className="4bar bar"></div>
+          <div className="4bar barS"></div>
           <h4>ד</h4>
         </div>
         <div className="day">
-          <div className="5bar bar"></div>
+          <div className="5bar barS"></div>
           <h4>ה</h4>
         </div>
         <div className="day">
-          <div className="6bar bar"></div>
+          <div className="6bar barS"></div>
           <h4>ו</h4>
         </div>
         <div className="day">
-          <div className="7bar bar"></div>
+          <div className="7bar barS"></div>
           <h4>ז</h4>
         </div>
         </div>

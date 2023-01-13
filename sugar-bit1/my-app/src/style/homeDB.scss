@@ -10,6 +10,27 @@ body {
 
 
 }
+.top{
+    position: relative;
+    top: -2.5rem;
+    .titleDB{
+        border: blue solid 3px;
+        border-radius: 50%;
+        height: 8rem;
+        width: 8rem;
+        backdrop-filter: brightness(130%);
+        .titleText{
+            position: relative;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: rgb(12, 12, 128);
+        }
+        .imgDB{
+            position: relative;
+            top: 1.5rem;
+        }
+    }
+}
 
 .daybookDetails {
     display: flex;
@@ -43,7 +64,7 @@ body {
     // display: flex;
     // justify-content: space-around;
     gap: 5rem;
-    background-color: aquamarine;
+    backdrop-filter: brightness(130%);
     border: black solid 1px;
     border-radius: 25px;
     // position: relative;
@@ -66,8 +87,8 @@ body {
             flex-direction: column;
             justify-content: end;
 
-            .bar {
-                background-color: chocolate;
+            .barS {
+                background-color:pink;
                 max-height: 85% !important;
             }
 
@@ -85,6 +106,10 @@ body {
     gap: 3rem;
     margin-top: 3rem;
 }
+.barC{
+    max-height: 85% !important;
+    background-color: green;
+}
 
 .allWeekIns {
     // align-items: center;
@@ -94,7 +119,7 @@ body {
     // display: flex;
     // justify-content: space-around;
     gap: 5rem;
-    background-color: aquamarine;
+    backdrop-filter: brightness(130%);
     border: black solid 1px;
     border-radius: 25px;
     
@@ -116,8 +141,8 @@ body {
             justify-content: end;
 
             // padding-bottom: 20rem;
-            .bar {
-                background-color: chocolate;
+            .barIns {
+                background-color: purple;
                 max-height: 85% !important;
 
 
